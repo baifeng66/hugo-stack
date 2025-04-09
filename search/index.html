@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://baifeng66.github.io/hugo-stack/search/'>
 
-<link rel="stylesheet" href="/hugo-stack/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="搜索">
+<link rel="stylesheet" href="/hugo-stack/scss/style.min.2d0a4aeea15b9883f6e56d9f1bc637128d05a631be54b3e462f685836dec065f.css"><meta property='og:title' content="搜索">
 <meta property='og:description' content="">
 <meta property='og:url' content='https://baifeng66.github.io/hugo-stack/search/'>
 <meta property='og:site_name' content='流栈拾光 -蔡海彬的博客'>
@@ -177,7 +177,7 @@
         
         
         <li >
-            <a href='/hugo-stack/%E5%8F%8B%E6%83%85%E9%93%BE%E6%8E%A5/' >
+            <a href='/hugo-stack/links/' >
                 
                 
                 
@@ -253,21 +253,21 @@
 
 <footer class="site-footer">
     <section class="copyright">
-        &copy; 
+        &copy;
         
-            2025- - 
+        2025- -
         
         2025 流栈拾光 -蔡海彬
     </section>
-    
+
     <section class="powerby">
         
-            “如果你在为自己在意的事努力，你不需要外界来催促。你的愿景会牵着你往前走。” <br/>
+        “如果你在为自己在意的事努力，你不需要外界来催促。你的愿景会牵着你往前走。” <br />
         使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
-        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener"
+                data-version="3.30.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
     </section>
 </footer>
-
 
             </main>
         </div>
@@ -287,6 +287,55 @@
         document.head.appendChild(customFont);
     }());
 </script>
+<style>
+    #TableOfContents>ul,
+    ol {
 
+        ul,
+        ol {
+            display: none;
+        }
+
+        .open {
+            display: block;
+        }
+    }
+</style>
+
+<script>
+    function initTocHide() {
+        
+        let toc = document.querySelector(".widget--toc");
+        if (!toc) {
+            return;
+        }
+        
+        window.addEventListener('scroll', function () {
+            
+            let openUl = document.querySelectorAll(".open");
+            if (openUl.length > 0) {
+                openUl.forEach((ul) => {
+                    ul.classList.remove("open")
+                })
+            }
+            
+            let currentLi = document.querySelector(".active-class");
+            if (!currentLi) {
+                return
+            }
+            
+            if (currentLi.children.length > 1) {
+                currentLi.children[1].classList.add("open")
+            }
+            
+            let ul = currentLi.parentElement;
+            do {
+                ul.classList.add("open");
+                ul = ul.parentElement.parentElement
+            } while (ul !== undefined && (ul.localName === 'ul' || ul.localName === 'ol'))
+        });
+    }
+    initTocHide()
+</script>
     </body>
 </html>
